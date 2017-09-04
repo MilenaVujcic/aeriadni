@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebApplication1.Models.Participant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Combinations participating</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr  style="background-color:yellowgreen">
+        <th>
+            Ticket Id
+        </th>
+        <th>
+            Number combination
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FormatedNumberCombination)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
